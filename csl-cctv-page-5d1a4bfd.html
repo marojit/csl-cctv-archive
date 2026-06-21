@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中超直播 · 知识库索引页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background-color: #faf9f5;
+      color: #2c2b29;
+      line-height: 1.8;
+      padding: 2rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #e5e2db;
+      padding-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #1f2a3a;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #5f5b55;
+      max-width: 700px;
+    }
+
+    .grid-areas {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 680px) {
+      .grid-areas {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    .card h2 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      border-left: 3px solid #c9a87c;
+      padding-left: 0.8rem;
+      margin-bottom: 1rem;
+      color: #1f2a3a;
+    }
+
+    .card ul, .card dl {
+      margin: 0.5rem 0 0 0;
+      padding-left: 0.2rem;
+    }
+
+    .card li {
+      list-style: none;
+      margin-bottom: 0.5rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #a4927c;
+      font-weight: bold;
+    }
+
+    .card dt {
+      font-weight: 500;
+      margin-top: 0.6rem;
+      color: #3d3b38;
+    }
+
+    .card dd {
+      margin-left: 0.2rem;
+      color: #5f5b55;
+      font-size: 0.95rem;
+    }
+
+    .info-strip {
+      background: #f3efe9;
+      padding: 1.5rem 1.8rem;
+      border-radius: 14px;
+      margin: 2rem 0;
+      border-left: 4px solid #bfa888;
+    }
+
+    .info-strip p {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: #3d3b38;
+    }
+
+    .info-strip strong {
+      color: #1f2a3a;
+      font-weight: 600;
+    }
+
+    .faq-summary {
+      background: transparent;
+      border: 1px dashed #d6cfc4;
+      border-radius: 14px;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0;
+    }
+
+    .faq-summary h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #3d3b38;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-summary .q-item {
+      margin: 1rem 0 0.4rem 0;
+    }
+
+    .faq-summary .q-item strong {
+      color: #2c2b29;
+      font-weight: 500;
+    }
+
+    .faq-summary .q-item span {
+      color: #5f5b55;
+      display: block;
+      margin-left: 0.6rem;
+      font-size: 0.93rem;
+    }
+
+    .reference-box {
+      background: white;
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid #eae5dd;
+      margin-top: 1.5rem;
+    }
+
+    .reference-box h4 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #3d3b38;
+    }
+
+    .reference-box p {
+      color: #5f5b55;
+      font-size: 0.95rem;
+    }
+
+    .reference-box a {
+      color: #8b6f4c;
+      text-decoration: none;
+      border-bottom: 1px dotted #c9b9a6;
+    }
+
+    .reference-box a:hover {
+      color: #5a422e;
+      border-bottom-style: solid;
+    }
+
+    .btn-soft {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: #f1ede6;
+      border-radius: 40px;
+      color: #2c2b29;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1px solid #ddd6cc;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .btn-soft:hover {
+      background: #e7e0d6;
+      border-color: #bfae9a;
+    }
+
+    .footer-note {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5e2db;
+      font-size: 0.85rem;
+      color: #888277;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .inline-link {
+      color: #7b6243;
+      text-decoration: none;
+      border-bottom: 1px dotted #c9b9a6;
+    }
+
+    .inline-link:hover {
+      border-bottom-style: solid;
+      color: #4d3927;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>中超直播 · 赛事知识快速索引</h1>
+    <p>面向日常赛程查询、数据对照与规则延伸阅读，聚合常用信息节点，减少反复检索成本。</p>
+  </div>
+
+  <div class="grid-areas">
+
+    <!-- 说明区：赛程与对照 -->
+    <div class="card">
+      <h2>对照说明</h2>
+      <ul>
+        <li>赛季积分榜、射手榜、助攻榜实时更新，可与往期同期对比</li>
+        <li>裁判选派公告、球队大名单动态、U23政策执行情况</li>
+        <li>天气影响 / 延期公告、中立场地变更通知</li>
+        <li>VAR 复核节点摘要、补时规则与实际执行差异</li>
+      </ul>
+    </div>
+
+    <!-- 提示区：使用建议 -->
+    <div class="card">
+      <h2>使用提示</h2>
+      <dl>
+        <dt>赛前快速确认</dt>
+        <dd>开赛前 2 小时留意首发名单及场地气温，部分场次存在直播延迟</dd>
+        <dt>赛后数据回溯</dt>
+        <dd>比赛结束后 30 分钟至 2 小时内，官方技术统计与热图陆续发布</dd>
+        <dt>跨赛季对比</dt>
+        <dd>建议使用浏览器本地收藏夹或笔记工具建立个人对照表</dd>
+      </dl>
+    </div>
+
+    <!-- 相关信息区：延伸阅读 -->
+    <div class="card">
+      <h2>相关信息</h2>
+      <ul>
+        <li>中国足协纪律委员会通报及处罚一览</li>
+        <li>各俱乐部官方社媒 / 新闻发布渠道</li>
+        <li>转会窗关闭前后注册信息汇总</li>
+        <li>亚冠 / 足协杯赛程及晋级规则差异</li>
+      </ul>
+    </div>
+
+    <!-- 目录感布局：常用入口 -->
+    <div class="card">
+      <h2>常用索引</h2>
+      <ul>
+        <li>赛季总积分与胜负关系速查</li>
+        <li>红黄牌累积停赛预警</li>
+        <li>国家队征召影响分析</li>
+        <li>媒体版权直播平台对照</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 提示框：场景化说明 -->
+  <div class="info-strip">
+    <p><strong>日常查询场景举例</strong> · 某支球队连续客场表现、某裁判执法尺度的赛季变化、某外援伤愈复出后的出场时间分布。这些数据需要跨平台比对，建议结合多个信息源交叉验证。</p>
+    <p style="margin-top:0.6rem;">如果需要<strong>实时赛况与直播信号</strong>，可参考 <a href="https://csl-cctv.com" class="btn-soft" style="margin:0 0.2rem;">中超直播</a> 提供的赛程列表与场次信息。</p>
+  </div>
+
+  <!-- FAQ 摘要区 -->
+  <div class="faq-summary">
+    <h3>常见延伸问题 · 摘要</h3>
+    <div class="q-item">
+      <strong>Q：积分相同情况下的排名规则？</strong>
+      <span>A：相互战绩（积分、净胜球、进球数）→ 总净胜球 → 总进球 → 红黄牌扣分。具体以当赛季规程为准。</span>
+    </div>
+    <div class="q-item">
+      <strong>Q：外援注册与上场名额如何分配？</strong>
+      <span>A：2025赛季中超外援政策为累计注册7人、同时注册6人、每场报名5人、同时上场最多4人（含亚洲外援）。</span>
+    </div>
+    <div class="q-item">
+      <strong>Q：补时阶段进球是否计入球员数据统计？</strong>
+      <span>A：计入。所有正式比赛时间内（含伤停补时）的进球均纳入射手榜及个人数据。</span>
+    </div>
+    <div class="q-item">
+      <strong>Q：哪里可以查询历史赛季的完整数据？</strong>
+      <span>A：部分数据平台与联赛官网保留近10个赛季的存档，注意区分赛季改制前后的统计口径差异。</span>
+    </div>
+  </div>
+
+  <!-- 额外相关信息区：参考资料 -->
+  <div class="reference-box">
+    <h4>参考资料与对照链接</h4>
+    <p>赛程日历（ICS格式）可从联赛技术手册获取；裁判选派通知及纪律委员会公告发布于中国足协官方网站。如需获取快速跳转，可先浏览 <a href="https://csl-cctv.com">中超直播</a> 页面的赛程索引，再根据具体场次到对应平台查看详情。</p>
+    <p style="margin-top:0.8rem;">建议搭配 RSS 阅读器或赛事订阅工具使用，减少手动检查频次。</p>
+  </div>
+
+  <div class="footer-note">
+    <span>知识卡片 · 仅作信息索引参考</span>
+    <span>数据源以官方发布为准 · 页面不构成任何预测或建议</span>
+  </div>
+
+</body>
+</html>
