@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 轻松导航 · 场景指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background: #f7f3eb; /* 米白基调 */
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #fcfaf6;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            padding: 2.8rem 2rem;
+        }
+
+        /* 顶部导航 — 简洁且带字重变化 */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e4dbcf;
+            padding-bottom: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .logo-area {
+            font-size: 1.6rem;
+            font-weight: 550;
+            letter-spacing: 0.02em;
+            color: #4b3f33;
+        }
+
+        .logo-area small {
+            font-size: 0.9rem;
+            font-weight: 380;
+            color: #847a6e;
+            margin-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5b4f43;
+            font-weight: 450;
+            font-size: 1rem;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b8a99a;
+        }
+
+        /* 核心介绍区块 */
+        .hero-intro {
+            margin-bottom: 3rem;
+        }
+
+        .hero-intro h1 {
+            font-size: 2.2rem;
+            font-weight: 520;
+            letter-spacing: -0.01em;
+            color: #372f28;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .hero-intro p {
+            font-size: 1.1rem;
+            color: #3f3832;
+            max-width: 680px;
+        }
+
+        .hero-quote {
+            background: #efe8dd;
+            padding: 1.2rem 1.8rem;
+            border-radius: 24px;
+            margin: 1.8rem 0 2.2rem 0;
+            border-left: 6px solid #b8a99a;
+            font-size: 1rem;
+            color: #2f2a26;
+        }
+
+        .hero-quote strong {
+            font-weight: 550;
+        }
+
+        /* 三个场景模块 — 卡片化 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.8rem;
+            margin: 2.8rem 0 3rem;
+        }
+
+        .scene-card {
+            background: #fdfbf9;
+            border: 1px solid #e3d8cc;
+            border-radius: 24px;
+            padding: 1.6rem 1.3rem 1.8rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            border-color: #cfc1b1;
+        }
+
+        .scene-card h3 {
+            font-weight: 520;
+            font-size: 1.3rem;
+            color: #3e352e;
+            margin-bottom: 0.7rem;
+            border-left: 5px solid #b8a99a;
+            padding-left: 0.7rem;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #4f463e;
+            margin-bottom: 0.4rem;
+        }
+
+        .scene-card .tag {
+            display: inline-block;
+            background: #e7dfd3;
+            color: #3e352e;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            margin-top: 0.6rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* 常见说明 — 折叠感 */
+        .faq-section {
+            margin: 2.2rem 0 1.2rem;
+        }
+
+        .faq-section h2 {
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: #372f28;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e4dbcf;
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-question {
+            font-weight: 510;
+            color: #3b332c;
+            display: block;
+            padding: 0.5rem 0 0.15rem 0;
+            font-size: 1.05rem;
+        }
+
+        .faq-answer {
+            color: #4f463e;
+            padding-left: 0.2rem;
+            border-left: 3px solid #d9cebf;
+            padding-left: 1rem;
+            margin-top: 0.15rem;
+        }
+
+        .faq-answer a {
+            color: #7f6e5b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        .faq-answer a:hover {
+            color: #3b3028;
+        }
+
+        /* 提示框 / callout */
+        .callout-box {
+            background: #efe8dd;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            margin: 2.5rem 0 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem 0.6rem;
+        }
+
+        .callout-box span:first-child {
+            font-weight: 530;
+            color: #372f28;
+            margin-right: 0.3rem;
+        }
+
+        .callout-box a {
+            color: #4f3f30;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 520;
+            background: transparent;
+        }
+
+        .callout-box a:hover {
+            color: #1f1a16;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            .page {
+                padding: 1.8rem 1.2rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1.2rem 1.6rem;
+            }
+            .hero-intro h1 {
+                font-size: 1.7rem;
+            }
+            .scenes-grid {
+                grid-template-columns: 1fr;
+            }
+            .callout-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e4dbcf;
+            font-size: 0.85rem;
+            color: #7f7569;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo-area">
+            爱游戏<span style="font-weight:300; color:#a0907f;">·</span>指南
+            <small>轻量导航</small>
+        </div>
+        <div class="nav-links">
+            <a href="#">介绍</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+        </div>
+    </nav>
+
+    <!-- 核心介绍 -->
+    <section class="hero-intro">
+        <h1>爱游戏 · 找到你的节奏</h1>
+        <p>无论是想快速了解内容方向，还是日常顺手打开常用服务，这里整理了一份围绕「爱游戏」的轻量导航页。没有多余装饰，只有平实的模块和索引。</p>
+        <div class="hero-quote">
+            <strong>◈ 从关键词出发</strong> —— 游戏的关键不只是画面与胜负，更是习惯和场景的延伸。下面三个场景覆盖了大部分人的日常路径。
+        </div>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid">
+        <div class="scene-card">
+            <h3>📱 随手点 · 移动端</h3>
+            <p>通勤、等候、睡前零碎时间，打开熟悉的界面，快速进入状态。不追求大块时间，十到十五分钟也能完成一轮互动。</p>
+            <span class="tag">轻量 · 高频</span>
+        </div>
+        <div class="scene-card">
+            <h3>🖥️ 沉浸式 · 完整时段</h3>
+            <p>周末或晚间，留出一到两小时，戴上耳机，关闭弹窗提醒。这时候适合探索新内容、研究机制或和朋友组队。</p>
+            <span class="tag">专注 · 深度</span>
+        </div>
+        <div class="scene-card">
+            <h3>📺 资讯·浏览</h3>
+            <p>不直接参与，只是看看更新、攻略、社区讨论。很多乐趣来自“围观”与交流，这也是一种参与方式。</p>
+            <span class="tag">社区 · 信息流</span>
+        </div>
+    </div>
+
+    <!-- 常见说明（FAQ 摘要） -->
+    <section class="faq-section">
+        <h2>常见说明</h2>
+        <div class="faq-item">
+            <span class="faq-question">▸ 这个页面是做什么的？</span>
+            <div class="faq-answer">一个围绕「爱游戏」整理的导航式说明页，提供场景分类和基础指引。没有广告或诱导，只有结构和内容。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-question">▸ 如何找到爱游戏相关资源？</span>
+            <div class="faq-answer">你可以直接使用 <a href="https://china-tv-igame.com">爱游戏</a> 作为起点，站点本身提供了更完整的信息与入口。本页仅做介绍。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-question">▸ 场景分类会不会过时？</span>
+            <div class="faq-answer">三个场景（移动端、沉浸时段、资讯浏览）是目前比较稳定的使用习惯，未来也会根据需求迭代说明。</div>
+        </div>
+    </section>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="callout-box">
+        <span>💡 提示</span>
+        如果你已经熟悉基础操作，可以直接前往 <a href="https://china-tv-igame.com">爱游戏</a> 查看更多内容。本页保持简洁，不堆砌链接。
+    </div>
+
+    <footer>
+        <span>爱游戏 · 导航说明页 · 内容整理于当下</span>
+    </footer>
+</div>
+</body>
+</html>
