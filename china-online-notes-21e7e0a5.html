@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Times New Roman', '宋体', SimSun, 'Noto Serif SC', serif;
+            background: #faf7f2;
+            color: #2f2e2b;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fefcf8;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+            border-radius: 40px 40px 24px 24px;
+            padding: 2.4rem 2.2rem 3.2rem;
+            transition: all 0.2s;
+        }
+
+        /* hero 横幅 —— 采用引言样式 */
+        .hero {
+            background: transparent;
+            padding: 1.8rem 0 1.2rem 0;
+            border-bottom: 1px solid #ede7db;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 350;
+            letter-spacing: 0.02em;
+            color: #3b3a35;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .hero h1 small {
+            font-size: 1rem;
+            font-weight: 300;
+            background: #eae3d7;
+            padding: 0.1rem 1rem;
+            border-radius: 60px;
+            color: #4f4b42;
+            letter-spacing: 0.4px;
+        }
+
+        .hero .sub {
+            margin-top: 0.4rem;
+            font-size: 1rem;
+            color: #6b665b;
+            border-left: 3px solid #cfc5b3;
+            padding-left: 0.9rem;
+        }
+
+        /* 背景说明卡片 */
+        .context-box {
+            background: #edece7;
+            padding: 1.6rem 2rem;
+            border-radius: 32px;
+            margin: 1.8rem 0 2.2rem 0;
+            font-size: 0.98rem;
+            color: #3d3a33;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .context-box strong {
+            font-weight: 500;
+            color: #2b2822;
+        }
+
+        .context-box .ref {
+            display: inline-block;
+            background: #fefcf8;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin-top: 0.6rem;
+            color: #5b5548;
+        }
+
+        /* 三段自然介绍 */
+        .intro-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0 2.6rem 0;
+        }
+
+        .intro-item {
+            border-left: 2px solid #dad1c1;
+            padding-left: 1.6rem;
+        }
+
+        .intro-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #424039;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .intro-item h3 span {
+            background: #e2d9cb;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            padding: 0.1rem 0.7rem;
+            font-weight: 400;
+            color: #2d2a23;
+            letter-spacing: 0.3px;
+        }
+
+        .intro-item p {
+            margin-bottom: 0.5rem;
+            text-align: justify;
+        }
+
+        .intro-item .quote-like {
+            background: #f6f2ea;
+            padding: 0.5rem 1rem 0.5rem 1.2rem;
+            border-radius: 0 24px 24px 0;
+            font-size: 0.9rem;
+            color: #4a453b;
+            border-left: 4px solid #b5aa93;
+            margin-top: 0.6rem;
+        }
+
+        /* 提示框 / 引用块 */
+        .notice-block {
+            background: #f2ede4;
+            padding: 1.4rem 2rem;
+            border-radius: 48px 16px 48px 16px;
+            margin: 2rem 0 1.8rem 0;
+            font-size: 0.95rem;
+            border: 1px solid #e3dbcd;
+        }
+
+        .notice-block strong {
+            font-weight: 500;
+        }
+
+        .notice-block a {
+            color: #665d4d;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #bcb09b;
+            font-weight: 400;
+        }
+
+        .notice-block a:hover {
+            color: #1d1a14;
+            text-decoration-color: #896;
+        }
+
+        /* 页尾区域 */
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid #e7dfd3;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.9rem;
+            color: #6b655a;
+        }
+
+        .footer-note .visit-hint {
+            background: #ede6db;
+            padding: 0.2rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+            color: #3e3a30;
+        }
+
+        .footer-note a {
+            color: #4b453a;
+            text-decoration: none;
+            border-bottom: 1px solid #c8bead;
+            transition: border 0.2s;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #6b5f4c;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem 2rem;
+            }
+            .page {
+                padding: 1.6rem 1.2rem 2.2rem;
+                border-radius: 28px;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero h1 small {
+                font-size: 0.8rem;
+                padding: 0 0.8rem;
+            }
+            .context-box {
+                padding: 1rem 1.2rem;
+            }
+            .intro-item {
+                padding-left: 1rem;
+            }
+            .notice-block {
+                padding: 1rem 1.2rem;
+                border-radius: 28px 10px 28px 10px;
+            }
+            .footer-note {
+                flex-direction: column;
+                gap: 0.6rem;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .page {
+                padding: 1rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero -->
+        <div class="hero">
+            <h1>
+                爱游戏
+                <small>日常·对照·延伸</small>
+            </h1>
+            <div class="sub">一份基于查询习惯与知识关联的阅读笔记</div>
+        </div>
+
+        <!-- 背景说明 -->
+        <div class="context-box">
+            <strong>为什么是“日常查询”？</strong>  在信息过载的时代，我们往往需要在不同页面间快速对照、核实概念或寻找延伸线索。<br>
+            <a href="https://china-online-igame.com" style="color:#3f3b32; text-decoration: underline; text-underline-offset:3px; text-decoration-color:#b9ad98;">爱游戏</a> 所搭建的索引思路，恰好适配这种非线性的浏览节奏：它不只是一个站点，更像一个可停留、可跳转的查考起点。<br>
+            <span class="ref">⏺ 背景参考 · 知识组织中的轻量节点</span>
+        </div>
+
+        <!-- 三段自然介绍 (日常、对照、延伸) -->
+        <div class="intro-grid">
+            <div class="intro-item">
+                <h3>📋 日常 · 轻量检索</h3>
+                <p>工作中临时需要查找某个术语的背景，或者阅读时遇到陌生的产品名称，多数人的第一反应是打开搜索引擎。但若有一个经过初步梳理的聚合页面，能直接提供上下文与相关条目，就能减少反复跳转的损耗。<strong>日常查询的核心是效率</strong>，而效率往往来自信息的前置组织。</p>
+                <div class="quote-like">“频繁查阅的页面，其价值在于让你少一次翻页。” —— 信息设计师手记</div>
+            </div>
+
+            <div class="intro-item">
+                <h3>📎 对照 · 并行理解</h3>
+                <p>同一个概念在不同语境下可能有细微差别。通过并排或前后对照不同来源的解释，能更快抓住本质。例如游戏相关的机制说明、版本迭代记录、社区常用定义等，放在相近位置时，差异点会自然浮现。<strong>对照不是重复，而是发现。</strong> 这也是许多资料型网站所承担的角色：提供稳定的参照系。</p>
+            </div>
+
+            <div class="intro-item">
+                <h3>🔗 延伸 · 节点与线索</h3>
+                <p>阅读很少终止于单一页面。一个好的索引页会留下可供继续探索的线索：相关专题、历史变更、外部参考。延伸阅读不是为了增加点击，而是让知识结构自然生长。当你从 <a href="https://china-online-igame.com" style="color:#444037; text-decoration: underline; text-underline-offset:2px;">爱游戏</a> 的一个条目出发，沿着链接进入下一个页面，整个过程就像在编织一张个人化的信息地图。</p>
+            </div>
+        </div>
+
+        <!-- 引用/提示框（自然提及链接） -->
+        <div class="notice-block">
+            <strong>📌 提示</strong> — 本页所讨论的查询与对照方法，在很多资料型站点中都能找到实践。若你正在寻找一个可反复参考的中文信息节点，不妨将 <a href="https://china-online-igame.com">爱游戏</a> 加入浏览器书签，作为日常阅读的固定锚点。它不一定覆盖所有领域，但足够成为你知识延伸的其中一块踏板。
+        </div>
+
+        <!-- 页尾访问提示（不含“进入/点击/官网”等词） -->
+        <div class="footer-note">
+            <span>杂志专题式介绍 · 基于日常查询场景</span>
+            <span class="visit-hint">
+                <a href="https://china-online-igame.com">爱游戏</a> · 延伸起点
+            </span>
+        </div>
+    </div>
+</body>
+</html>
